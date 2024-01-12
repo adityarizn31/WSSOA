@@ -45,6 +45,7 @@ $client->soap_defencoding = 'utf-8';
         if (isset($_POST['submit'])) {
           $username = $_POST['symbolstock'];
           $response = $client->call('getStock', array("symbolstock" => $username));
+          $response = $client->call('buyer', array("username" => $username));
           echo $response ?: "Barang Tidak Ditemukan, Silahkan ganti Barang !!";
         }
         ?>

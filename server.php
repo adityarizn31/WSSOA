@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 use nguyenanhung\MyFixNuSOAP\nusoap_server;
 
-function user($username)
+function buyer($username)
 {
   $userData = "Nama :$username";
   return $userData;
@@ -16,7 +16,9 @@ function getStock($shopStock)
     "Gas Spontan" => 200.000,
     "Oil" => 150.000,
     "Shock Breaker" => 1.800000,
-    "Handle" => 330.000
+    "Handle" => 330.000,
+    "Crashbar" => 1.600000,
+    "Lamp" => 500.000
   ];
 
   foreach ($stocks as $stock => $count) {
@@ -39,7 +41,7 @@ $server = new nusoap_server();
 $server->configureWSDL('my_wsdl', 'urn:my_wsdl');
 
 $server->register(
-  'user',
+  'buyer',
   array('username' => 'xsd:string'),
   array('username' => 'xsd:string'),
 );
